@@ -35,7 +35,7 @@ summary::-webkit-details-marker{display:none}
 [data-edge]{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
 [data-edge] path{fill:none;vector-effect:non-scaling-stroke}
 [data-edge] .e-base{stroke-width:1;transition:stroke .5s ease}
-[data-edge] .e-run{stroke:#a5eef6;stroke-width:2;stroke-linecap:round;opacity:0;filter:drop-shadow(0 0 3px #4fd8e8) drop-shadow(0 0 8px rgba(79,216,232,0.8))}
+[data-edge] .e-run{stroke:var(--edge-c,#d2f8fc);stroke-width:var(--edge-w,2px);stroke-linecap:round;opacity:0;filter:drop-shadow(0 0 calc(var(--edge-g,0.6)*4px) var(--edge-c,#d2f8fc)) drop-shadow(0 0 calc(var(--edge-g,0.6)*10px) var(--edge-c,#d2f8fc))}
 [data-card]:hover [data-edge] .e-base,[data-card]:focus-within [data-edge] .e-base,[data-card].is-lit [data-edge] .e-base{stroke:rgba(79,216,232,0.75) !important}
 #faq summary>span:last-child{display:inline-block;transition:transform .4s cubic-bezier(.2,.7,.2,1);font-size:24px;line-height:1}
 #faq details.is-open summary>span:last-child{transform:rotate(135deg)}
@@ -342,7 +342,7 @@ summary::-webkit-details-marker{display:none}
 </footer>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;scrollLength&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:800,&quot;min&quot;:300,&quot;max&quot;:800,&quot;step&quot;:20,&quot;unit&quot;:&quot;vh&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Walkthrough&quot;},&quot;ambientCount&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0,&quot;min&quot;:0,&quot;max&quot;:90,&quot;step&quot;:2,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Walkthrough&quot;},&quot;showHud&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Walkthrough&quot;},&quot;glowCorner&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;bottom-right&quot;,&quot;bottom-left&quot;,&quot;top-right&quot;,&quot;top-left&quot;,&quot;off&quot;],&quot;default&quot;:&quot;bottom-right&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Card glow&quot;},&quot;glowSize&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:860,&quot;min&quot;:200,&quot;max&quot;:900,&quot;step&quot;:20,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Card glow&quot;},&quot;glowIntensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.1,&quot;min&quot;:0,&quot;max&quot;:0.6,&quot;step&quot;:0.02,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Card glow&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;scrollLength&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:800,&quot;min&quot;:300,&quot;max&quot;:800,&quot;step&quot;:20,&quot;unit&quot;:&quot;vh&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Walkthrough&quot;},&quot;ambientCount&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0,&quot;min&quot;:0,&quot;max&quot;:90,&quot;step&quot;:2,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Walkthrough&quot;},&quot;showHud&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Walkthrough&quot;},&quot;glowCorner&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;bottom-right&quot;,&quot;bottom-left&quot;,&quot;top-right&quot;,&quot;top-left&quot;,&quot;off&quot;],&quot;default&quot;:&quot;bottom-right&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Card glow&quot;},&quot;glowSize&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:860,&quot;min&quot;:200,&quot;max&quot;:900,&quot;step&quot;:20,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Card glow&quot;},&quot;glowIntensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.1,&quot;min&quot;:0,&quot;max&quot;:0.6,&quot;step&quot;:0.02,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Card glow&quot;},&quot;edgeLapSeconds&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.1,&quot;min&quot;:0.05,&quot;max&quot;:3,&quot;step&quot;:0.05,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Edge light (card 01)&quot;},&quot;edgeIntervalSeconds&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:3,&quot;min&quot;:0,&quot;max&quot;:10,&quot;step&quot;:0.5,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Edge light (card 01)&quot;},&quot;edgeTrail&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:60,&quot;min&quot;:10,&quot;max&quot;:300,&quot;step&quot;:5,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Edge light (card 01)&quot;},&quot;edgeColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#d2f8fc&quot;,&quot;options&quot;:[&quot;#d2f8fc&quot;,&quot;#ffffff&quot;,&quot;#a5eef6&quot;,&quot;#4fd8e8&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Edge light (card 01)&quot;},&quot;edgeGlow&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:0.6,&quot;min&quot;:0,&quot;max&quot;:1.5,&quot;step&quot;:0.05,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Edge light (card 01)&quot;},&quot;edgeWidth&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:2,&quot;min&quot;:1,&quot;max&quot;:4,&quot;step&quot;:0.5,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Edge light (card 01)&quot;}}">
 class Component extends DCLogic {
   heroRef = React.createRef();
   canvasRef = React.createRef();
@@ -360,7 +360,7 @@ class Component extends DCLogic {
     const tick = t => { this.raf = requestAnimationFrame(tick); this.frame(t); };
     this.raf = requestAnimationFrame(tick);
   }
-  componentDidUpdate() { this.applyLength(); this.applyGlow(); this.amb = null; this.dirty = true; }
+  componentDidUpdate() { this.applyLength(); this.applyGlow(); this.applyEdge && this.applyEdge(); this.amb = null; this.dirty = true; }
   componentWillUnmount() {
     cancelAnimationFrame(this.raf);
     window.removeEventListener('pointermove', this.onMove);
@@ -383,8 +383,26 @@ class Component extends DCLogic {
     });
   }
   // ---- polish: traced card edges, FAQ, nav scramble ----
+  // Card 01 edge light: one lap, then a pause, repeated. All values come from the Tweaks panel.
+  edgeLoop(p, L) {
+    const pr = this.props, lap = Math.max(0.05, pr.edgeLapSeconds ?? 0.1) * 1000, gap = Math.max(0, pr.edgeIntervalSeconds ?? 3) * 1000;
+    const seg = Math.max(4, Math.min(L * 0.5, pr.edgeTrail ?? 60)), per = lap + gap, f = lap / per;
+    p.style.strokeDasharray = seg + ' ' + (L - seg);
+    const kf = [{ offset: 0, strokeDashoffset: seg, opacity: 1 }, { offset: f, strokeDashoffset: seg - L, opacity: 1 }];
+    if (gap > 0) kf.push({ offset: Math.min(1, f + 0.0001), strokeDashoffset: seg - L, opacity: 0 }, { offset: 1, strokeDashoffset: seg - L, opacity: 0 });
+    return p.animate(kf, { duration: per, iterations: Infinity, easing: 'linear' });
+  }
+  applyEdge() {
+    const pr = this.props, root = document.documentElement;
+    root.style.setProperty('--edge-c', pr.edgeColor ?? '#d2f8fc');
+    root.style.setProperty('--edge-g', String(pr.edgeGlow ?? 0.6));
+    root.style.setProperty('--edge-w', (pr.edgeWidth ?? 2) + 'px');
+    const c = document.querySelector('#why [data-card]');
+    if (c && c._loopAnim) { c._loopAnim.cancel(); c._running = 1; c._loopAnim = this.edgeLoop(c._run, c._run.getTotalLength()); }
+  }
   initPolish() {
     const red = this.reduced;
+    this.applyEdge();
     const cut = 22;
     const shape = (w, h) => 'M0.5,0.5 H' + (w - cut) + ' L' + (w - 0.5) + ',' + cut + ' V' + (h - 0.5) + ' H' + cut + ' L0.5,' + (h - cut) + ' Z';
     const run = (el, loop) => {
@@ -393,8 +411,9 @@ class Component extends DCLogic {
       p.style.strokeDasharray = seg + ' ' + L;
       const dur = Math.min(2200, 900 + L * 0.9);
       const a = loop
-        ? (p.style.strokeDasharray = seg + ' ' + (L - seg), p.animate([{ strokeDashoffset: 0, opacity: 1 }, { strokeDashoffset: -L, opacity: 1 }], { duration: dur / 2, iterations: Infinity, easing: 'linear' }))
+        ? this.edgeLoop(p, L)
         : p.animate([{ strokeDashoffset: seg, opacity: 0 }, { opacity: 1, offset: 0.06 }, { opacity: 1, offset: 0.92 }, { strokeDashoffset: -L, opacity: 0 }], { duration: dur, easing: 'cubic-bezier(.45,.05,.35,1)' });
+      if (loop) el._loopAnim = a;
       a.onfinish = a.oncancel = () => { el._running = 0; };
     };
     const cards = [...document.querySelectorAll('#why [data-card], #footprint [data-card]')];
