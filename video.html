@@ -411,8 +411,7 @@ class Component extends DCLogic {
       el._edge = svg; el._run = runp;
       const size = () => { const w = el.offsetWidth, h = el.offsetHeight; if (!w || !h) return; svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h); const d = shape(w, h); base.setAttribute('d', d); runp.setAttribute('d', d); };
       size(); if (window.ResizeObserver) new ResizeObserver(size).observe(el);
-      el.addEventListener('pointerenter', () => run(el));
-      el.addEventListener('focusin', () => run(el));
+      // hover: border turns blue (CSS); only card 01 runs the dot, on a loop
     });
     // smoother, staggered fade-in for the card groups
     if (!red) ['#why', '#footprint'].forEach(sel => {
