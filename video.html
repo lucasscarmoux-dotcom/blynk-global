@@ -27,6 +27,32 @@ summary::-webkit-details-marker{display:none}
 [data-btn]:hover [data-arr],[data-btn]:focus-visible [data-arr]{transform:translateX(0) !important}
 @media (prefers-reduced-motion:reduce){[data-arr]{transition:none !important}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* ---- polish: cards, stats, FAQ, nav ---- */
+#why [data-card],#footprint [data-card]{position:relative;border-color:transparent !important}
+#why [data-card][data-flat],#footprint [data-card][data-flat]{background-color:#0e141c !important}
+#footprint [data-card]{background-color:#0c1118 !important}
+[data-edge]{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+[data-edge] path{fill:none;vector-effect:non-scaling-stroke}
+[data-edge] .e-base{stroke-width:1;transition:stroke .5s ease}
+[data-edge] .e-run{stroke:#a5eef6;stroke-width:2;stroke-linecap:round;opacity:0;filter:drop-shadow(0 0 3px #4fd8e8) drop-shadow(0 0 8px rgba(79,216,232,0.8))}
+[data-card]:hover [data-edge] .e-base,[data-card]:focus-within [data-edge] .e-base,[data-card].is-lit [data-edge] .e-base{stroke:rgba(79,216,232,0.75) !important}
+#faq summary>span:last-child{display:inline-block;transition:transform .4s cubic-bezier(.2,.7,.2,1);font-size:24px;line-height:1}
+#faq details.is-open summary>span:last-child{transform:rotate(135deg)}
+#faq details>p{overflow:hidden}
+[data-navlinks] a{display:inline-block;transition:color .25s ease}
+[data-burger]{position:relative;transition:border-color .3s ease,box-shadow .3s ease,background .3s ease}
+[data-burger] span{transition:transform .4s cubic-bezier(.2,.7,.2,1),opacity .25s ease,background .3s ease;transform-origin:center}
+[data-burger][aria-expanded="true"]{border-color:rgba(79,216,232,0.7) !important;box-shadow:0 0 18px rgba(79,216,232,0.35),inset 0 0 10px rgba(79,216,232,0.15);background:rgba(79,216,232,0.08) !important}
+[data-burger][aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg);background:#4fd8e8 !important}
+[data-burger][aria-expanded="true"] span:nth-child(2){opacity:0;transform:scaleX(0)}
+[data-burger][aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@keyframes navIn{from{opacity:0;clip-path:inset(0 0 100% 0)}to{opacity:1;clip-path:inset(0 0 0 0)}}
+@keyframes linkIn{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:none}}
+[data-navmenu]{animation:navIn .4s cubic-bezier(.2,.7,.2,1) both}
+[data-navmenu] a{animation:linkIn .5s cubic-bezier(.2,.7,.2,1) both}
+[data-navmenu] a:nth-child(1){animation-delay:.06s}[data-navmenu] a:nth-child(2){animation-delay:.11s}[data-navmenu] a:nth-child(3){animation-delay:.16s}[data-navmenu] a:nth-child(4){animation-delay:.21s}[data-navmenu] a:nth-child(5){animation-delay:.26s}[data-navmenu] a:nth-child(6){animation-delay:.31s}[data-navmenu] a:nth-child(7){animation-delay:.36s}
+@media (prefers-reduced-motion:reduce){[data-navmenu],[data-navmenu] a{animation:none}[data-burger] span,#faq summary>span:last-child{transition:none}}
 </style>
 <template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#07090d"></rect><circle cx="50" cy="50" r="20" fill="#4fd8e8"></circle></svg></template>
 </helmet>
@@ -38,15 +64,15 @@ summary::-webkit-details-marker{display:none}
     <span>BLYNK GLOBAL</span>
   </a>
   <div data-navlinks="1" style="flex:1;display:flex;justify-content:center;gap:28px;font-size:15px;white-space:nowrap">
-    <a href="#services" style="color:#b9c3cf;line-height:44px" style-hover="color:#fff">Services</a>
-    <a href="#why" style="color:#b9c3cf;line-height:44px" style-hover="color:#fff">Why us</a>
-    <a href="#footprint" style="color:#b9c3cf;line-height:44px" style-hover="color:#fff">Footprint</a>
-    <a href="#leadership" style="color:#b9c3cf;line-height:44px" style-hover="color:#fff">Leadership</a>
-    <a href="#faq" style="color:#b9c3cf;line-height:44px" style-hover="color:#fff">FAQ</a>
+    <a href="#services" style="color:#b9c3cf;line-height:44px" style-hover="color:#4fd8e8">Services</a>
+    <a href="#why" style="color:#b9c3cf;line-height:44px" style-hover="color:#4fd8e8">Why us</a>
+    <a href="#footprint" style="color:#b9c3cf;line-height:44px" style-hover="color:#4fd8e8">Footprint</a>
+    <a href="#leadership" style="color:#b9c3cf;line-height:44px" style-hover="color:#4fd8e8">Leadership</a>
+    <a href="#faq" style="color:#b9c3cf;line-height:44px" style-hover="color:#4fd8e8">FAQ</a>
   </div>
   <a href="/" data-btn="1" data-navcta="1" style="display:inline-flex;align-items:stretch;min-height:44px;background:rgba(255,255,255,0.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,0.16);color:#e8ecf1;font-weight:600;font-size:15px;white-space:nowrap;transition:box-shadow .25s ease-out;" style-hover="color:#fff;box-shadow:inset 0 0 0 1px rgba(79,216,232,0.8),0 0 24px rgba(79,216,232,0.25)"><span style="display:flex;align-items:center;justify-content:center;flex:none;width:40px;border-right:1px solid rgba(255,255,255,0.16);color:#4fd8e8;font-size:11px" aria-hidden="true">▶</span><span data-scr="1" style="display:inline-flex;align-items:center;overflow:hidden;box-sizing:border-box;padding:0 16px">Wireframe version</span></a>
   <a href="#contact" data-btn="1" data-navcta="1" style="display:inline-flex;align-items:stretch;min-height:44px;background:linear-gradient(100deg,#d2f8fc,#4fd8e8 55%,#2a9be0);color:#04141a;font-weight:600;font-size:15px;white-space:nowrap;transition:box-shadow .25s ease-out;" style-hover="color:#04141a;box-shadow:0 0 30px rgba(79,216,232,0.5)"><span data-scr="1" style="display:inline-flex;align-items:center;overflow:hidden;box-sizing:border-box;padding:0 16px">Contact</span><span style="display:flex;align-items:center;flex:none;width:44px;overflow:hidden;border-left:1px solid rgba(4,20,26,0.3)"><span data-arr="1" style="display:flex;flex:none;width:200%;transform:translateX(-50%);transition:transform .4s cubic-bezier(.2,.7,.2,1)"><span style="flex:1;text-align:center">→</span><span style="flex:1;text-align:center">→</span></span></span></a>
-  <button data-burger="1" type="button" aria-label="Menu" aria-expanded="{{ menuOpen }}" onClick="{{ toggleMenu }}" style="flex:none;width:44px;height:44px;padding:0;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);color:#e8ecf1;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px">
+  <button data-burger="1" type="button" aria-label="{{ menuLabel }}" aria-expanded="{{ menuOpen }}" onClick="{{ toggleMenu }}" style="flex:none;width:44px;height:44px;padding:0;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.16);color:#e8ecf1;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:5px">
     <span style="width:18px;height:2px;background:#e8ecf1"></span>
     <span style="width:18px;height:2px;background:#e8ecf1"></span>
     <span style="width:18px;height:2px;background:#4fd8e8"></span>
@@ -230,7 +256,7 @@ summary::-webkit-details-marker{display:none}
       <div data-reveal="1" data-card="1" style="flex:5 1 300px;box-sizing:border-box;min-height:260px;padding:28px;background:radial-gradient(var(--gs,440px) circle at var(--gx,100%) var(--gy,100%),rgba(79,216,232,var(--ga,0.22)),rgba(42,155,224,calc(var(--ga,0.22)*0.3)) 45%,rgba(0,0,0,0) 70%),#090d13;border:1px solid rgba(79,216,232,0.35);clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,22px 100%,0 calc(100% - 22px));display:flex;flex-direction:column;gap:10px"><div style="font-family:'IBM Plex Mono',monospace;font-size:14px;letter-spacing:0.08em;color:#4fd8e8;margin-bottom:auto">06</div><h3 style="margin:0;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;font-size:18px;font-weight:500;letter-spacing:0.02em">Looking ahead</h3><p style="margin:0;color:#b9c3cf;font-size:16px">Emerging technology research for the next wave of digital transformation.</p></div>
     </div>
     </div>
-    <div data-reveal="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:24px">
+    <div data-reveal="1" data-stats="1" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px 48px">
       <div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:clamp(44px,6vw,76px);font-weight:600;line-height:1;letter-spacing:-0.03em">4</div><div style="color:#93a0b0">Unique business partners</div></div>
       <div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:clamp(44px,6vw,76px);font-weight:600;line-height:1;letter-spacing:-0.03em">40+</div><div style="color:#93a0b0">System solutions implemented</div></div>
       <div style="display:flex;flex-direction:column;gap:4px"><div style="font-size:clamp(44px,6vw,76px);font-weight:600;line-height:1;letter-spacing:-0.03em">7</div><div style="color:#93a0b0">Countries</div></div>
@@ -329,6 +355,7 @@ class Component extends DCLogic {
     this.applyLength();
     this.initReveals();
     this.initFx();
+    this.initPolish();
     this.applyGlow();
     const tick = t => { this.raf = requestAnimationFrame(tick); this.frame(t); };
     this.raf = requestAnimationFrame(tick);
@@ -353,6 +380,93 @@ class Component extends DCLogic {
       el.style.opacity = 0; el.style.transform = 'translateY(14px)';
       el.style.transition = 'opacity .6s ease-out, transform .6s ease-out';
       this.io.observe(el);
+    });
+  }
+  // ---- polish: traced card edges, FAQ, nav scramble ----
+  initPolish() {
+    const red = this.reduced;
+    const cut = 22;
+    const shape = (w, h) => 'M0.5,0.5 H' + (w - cut) + ' L' + (w - 0.5) + ',' + cut + ' V' + (h - 0.5) + ' H' + cut + ' L0.5,' + (h - cut) + ' Z';
+    const run = el => {
+      if (red || !el._run || el._running) return; el._running = 1;
+      const p = el._run, L = p.getTotalLength(), seg = 44;
+      p.style.strokeDasharray = seg + ' ' + L;
+      const a = p.animate([{ strokeDashoffset: seg, opacity: 0 }, { opacity: 1, offset: 0.06 }, { opacity: 1, offset: 0.92 }, { strokeDashoffset: -L, opacity: 0 }], { duration: Math.min(2200, 900 + L * 0.9), easing: 'cubic-bezier(.45,.05,.35,1)' });
+      a.onfinish = a.oncancel = () => { el._running = 0; };
+    };
+    const cards = [...document.querySelectorAll('#why [data-card], #footprint [data-card]')];
+    cards.forEach(el => {
+      if (el._edge) return;
+      const accent = /79,\s*216,\s*232/.test(el.getAttribute('style').match(/border:[^;]*/) ? el.getAttribute('style').match(/border:[^;]*/)[0] : '');
+      if (!accent && el.closest('#why')) el.setAttribute('data-flat', '1');
+      const NS = 'http://www.w3.org/2000/svg', svg = document.createElementNS(NS, 'svg');
+      svg.setAttribute('data-edge', '1'); svg.setAttribute('aria-hidden', 'true');
+      const base = document.createElementNS(NS, 'path'), runp = document.createElementNS(NS, 'path');
+      base.setAttribute('class', 'e-base'); runp.setAttribute('class', 'e-run');
+      base.style.stroke = accent ? 'rgba(79,216,232,0.4)' : 'rgba(120,150,180,0.28)';
+      svg.appendChild(base); svg.appendChild(runp); el.appendChild(svg);
+      el._edge = svg; el._run = runp;
+      const size = () => { const w = el.offsetWidth, h = el.offsetHeight; if (!w || !h) return; svg.setAttribute('viewBox', '0 0 ' + w + ' ' + h); const d = shape(w, h); base.setAttribute('d', d); runp.setAttribute('d', d); };
+      size(); if (window.ResizeObserver) new ResizeObserver(size).observe(el);
+      el.addEventListener('pointerenter', () => run(el));
+      el.addEventListener('focusin', () => run(el));
+    });
+    // smoother, staggered fade-in for the card groups
+    if (!red) ['#why', '#footprint'].forEach(sel => {
+      document.querySelectorAll(sel + ' [data-card]').forEach((el, i) => {
+        el.style.transform = 'translateY(22px)';
+        el.style.transition = 'opacity .9s cubic-bezier(.2,.7,.2,1) ' + (i % 3) * 110 + 'ms, transform .9s cubic-bezier(.2,.7,.2,1) ' + (i % 3) * 110 + 'ms';
+      });
+    });
+    // first card of each group: light up and trace once when it scrolls into view
+    const firsts = ['#why [data-card]', '#footprint [data-card]'].map(s => document.querySelector(s)).filter(Boolean);
+    if (window.IntersectionObserver) {
+      const io = new IntersectionObserver(es => es.forEach(e => {
+        if (!e.isIntersecting) return; io.unobserve(e.target);
+        e.target.classList.add('is-lit');
+        setTimeout(() => run(e.target), red ? 0 : 450);
+      }), { threshold: 0.6 });
+      firsts.forEach(el => io.observe(el));
+    } else firsts.forEach(el => el.classList.add('is-lit'));
+    // FAQ: animated open/close
+    document.querySelectorAll('#faq details').forEach(d => {
+      if (d._faq) return; d._faq = 1;
+      const sm = d.querySelector('summary'), body = d.querySelector('summary + *');
+      if (d.open) d.classList.add('is-open');
+      sm.addEventListener('click', e => {
+        if (red || !body || !body.animate) { requestAnimationFrame(() => d.classList.toggle('is-open', d.open)); return; }
+        e.preventDefault();
+        if (d._anim) d._anim.cancel();
+        const opening = !d.open || d.classList.contains('is-closing');
+        d.classList.remove('is-closing');
+        if (opening) {
+          d.open = true; d.classList.add('is-open');
+          const h = body.scrollHeight;
+          d._anim = body.animate([{ height: '0px', opacity: 0 }, { height: h + 'px', opacity: 1 }], { duration: 420, easing: 'cubic-bezier(.2,.7,.2,1)' });
+          d._anim.onfinish = () => { d._anim = null; };
+        } else {
+          d.classList.remove('is-open'); d.classList.add('is-closing');
+          const h = body.offsetHeight;
+          d._anim = body.animate([{ height: h + 'px', opacity: 1 }, { height: '0px', opacity: 0 }], { duration: 340, easing: 'cubic-bezier(.4,0,.2,1)' });
+          d._anim.onfinish = () => { d.open = false; d.classList.remove('is-closing'); d._anim = null; };
+        }
+      });
+    });
+    // nav links: same letter scramble as the buttons
+    const CH = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#/<>';
+    document.querySelectorAll('[data-navlinks] a').forEach(a => {
+      if (a._scr) return; a._scr = 1;
+      const tn = [...a.childNodes].find(n => n.nodeType === 3 && n.nodeValue.trim()); if (!tn) return;
+      const txt = tn.nodeValue; let iv;
+      a.addEventListener('pointerenter', () => {
+        if (red) return; clearInterval(iv);
+        a.style.width = a.offsetWidth + 'px'; let i = 0;
+        iv = setInterval(() => {
+          i += Math.max(0.5, txt.length / 14);
+          tn.nodeValue = txt.split('').map((c, j) => j < i || c === ' ' ? c : CH[(Math.random() * CH.length) | 0]).join('');
+          if (i >= txt.length) { clearInterval(iv); tn.nodeValue = txt; a.style.width = ''; }
+        }, 28);
+      });
     });
   }
   initFx() {
@@ -454,7 +568,7 @@ class Component extends DCLogic {
   }
   renderVals() {
     const open = !!(this.state && this.state.menuOpen);
-    return { heroRef: this.heroRef, canvasRef: this.canvasRef, showHud: this.props.showHud ?? true, menuOpen: open,
+    return { heroRef: this.heroRef, canvasRef: this.canvasRef, showHud: this.props.showHud ?? true, menuOpen: open, menuLabel: open ? 'Close menu' : 'Open menu',
       toggleMenu: () => this.setState({ menuOpen: !open }), closeMenu: () => this.setState({ menuOpen: false }) };
   }
 }
