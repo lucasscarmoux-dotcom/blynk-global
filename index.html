@@ -442,11 +442,14 @@ class Component extends DCLogic {
     const red = this.reduced;
     const cut = 22;
     const shape = (w, h) => 'M0.5,0.5 H' + (w - cut) + ' L' + (w - 0.5) + ',' + cut + ' V' + (h - 0.5) + ' H' + cut + ' L0.5,' + (h - cut) + ' Z';
-    const run = el => {
+    const run = (el, loop) => {
       if (red || !el._run || el._running) return; el._running = 1;
       const p = el._run, L = p.getTotalLength(), seg = 44;
       p.style.strokeDasharray = seg + ' ' + L;
-      const a = p.animate([{ strokeDashoffset: seg, opacity: 0 }, { opacity: 1, offset: 0.06 }, { opacity: 1, offset: 0.92 }, { strokeDashoffset: -L, opacity: 0 }], { duration: Math.min(2200, 900 + L * 0.9), easing: 'cubic-bezier(.45,.05,.35,1)' });
+      const dur = Math.min(2200, 900 + L * 0.9);
+      const a = loop
+        ? (p.style.strokeDasharray = seg + ' ' + (L - seg), p.animate([{ strokeDashoffset: 0, opacity: 1 }, { strokeDashoffset: -L, opacity: 1 }], { duration: dur / 2, iterations: Infinity, easing: 'linear' }))
+        : p.animate([{ strokeDashoffset: seg, opacity: 0 }, { opacity: 1, offset: 0.06 }, { opacity: 1, offset: 0.92 }, { strokeDashoffset: -L, opacity: 0 }], { duration: dur, easing: 'cubic-bezier(.45,.05,.35,1)' });
       a.onfinish = a.oncancel = () => { el._running = 0; };
     };
     const cards = [...document.querySelectorAll('#why [data-card], #footprint [data-card]')];
@@ -474,12 +477,12 @@ class Component extends DCLogic {
       });
     });
     // first card of each group: light up and trace once when it scrolls into view
-    const firsts = ['#why [data-card]', '#footprint [data-card]'].map(s => document.querySelector(s)).filter(Boolean);
+    const firsts = ['#why [data-card]'].map(s => document.querySelector(s)).filter(Boolean);
     if (window.IntersectionObserver) {
       const io = new IntersectionObserver(es => es.forEach(e => {
         if (!e.isIntersecting) return; io.unobserve(e.target);
         e.target.classList.add('is-lit');
-        setTimeout(() => run(e.target), red ? 0 : 450);
+        setTimeout(() => run(e.target, true), red ? 0 : 450);
       }), { threshold: 0.6 });
       firsts.forEach(el => io.observe(el));
     } else firsts.forEach(el => el.classList.add('is-lit'));
